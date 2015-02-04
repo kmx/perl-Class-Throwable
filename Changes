@@ -1,5 +1,8 @@
 Revision history for Perl extension Class-Throwable.
 
+0.12    2015/02/04
+        - fix for #100890 (typos/spelling)
+
 0.11    2009/07/26
         - win32 compatibility patch 
 
