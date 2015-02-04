@@ -1,5 +1,8 @@
 Revision history for Perl extension Class-Throwable.
 
+0.13    2015/02/04
+        - fix for #101937 (SEE ALSO pod fix)
+
 0.12    2015/02/04
         - fix for #100890 (typos/spelling)
 

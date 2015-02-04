@@ -4,7 +4,7 @@ package Class::Throwable;
 use strict;
 use warnings;
 
-our $VERSION = '0.12';
+our $VERSION = '0.13';
 
 use Scalar::Util qw(blessed);
 
@@ -494,6 +494,10 @@ I use B<Devel::Cover> to test the code coverage of my tests, below is the B<Deve
 There are a number of ways to do exceptions with perl, I was not really satisifed with the way anyone else did them, so I created this module. However, if you find this module unsatisfactory, you may want to check these out.
 
 =over 4
+
+=item L<Throwable>
+
+Throwable is a role for classes that are meant to be thrown as exceptions to standard program flow.
 
 =item L<Exception::Class>
 
