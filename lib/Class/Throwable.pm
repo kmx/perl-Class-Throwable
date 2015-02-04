@@ -279,9 +279,9 @@ Class::Throwable - A minimal lightweight exception class
   # can also declare subclasses of Class::Throwable 
   # in other files, then when you import them, you
   # can set their verbosity
-  use My::Sub::Class::In::A::Seperate::File (VERBOSE => 1);
+  use My::Sub::Class::In::A::Separate::File (VERBOSE => 1);
   
-  throw My::Sub::Class::In::A::Seperate::File "This excepton will use a verbosity of 1";
+  throw My::Sub::Class::In::A::Separate::File "This exception will use a verbosity of 1";
   
   # you can even create exceptions, then throw them later
   my $e = Class::Throwable->new("Things have gone bad, but I need to do something first", $@);
@@ -301,11 +301,11 @@ You can easily create new exception classes inline by passing them with the C<us
 
   use Class::Throwable ('My::InlineException', 'My::Other::InlineException');
 
-This is a quick and easy way to define arbitrary exception classes without the need to manually create seperate files or packages for them. However, it should be noted that subclasses of Class::Throwable cannot be used to define inline exceptions. If you attempt to do this, an exception will be thrown.
+This is a quick and easy way to define arbitrary exception classes without the need to manually create separate files or packages for them. However, it should be noted that subclasses of Class::Throwable cannot be used to define inline exceptions. If you attempt to do this, an exception will be thrown.
 
 =head2 Exception Verbosity
 
-Class::Throwable offeres a number of different types of diagnostic outputs to suit your needs. Most of this is controlled through the verbosity levels. If the verbosity level is set to 0 or below, an empty string is returned. If the value is set to 1, then the exception's message is returned. If the value is set to 2 or above, a full stack trace along with full stack traces for all sub-exceptions are returned in the format shown in C<stackTraceToString>. The default verbosity setting is 1.
+Class::Throwable offers a number of different types of diagnostic outputs to suit your needs. Most of this is controlled through the verbosity levels. If the verbosity level is set to 0 or below, an empty string is returned. If the value is set to 1, then the exception's message is returned. If the value is set to 2 or above, a full stack trace along with full stack traces for all sub-exceptions are returned in the format shown in C<stackTraceToString>. The default verbosity setting is 1.
 
 There are a number of ways in which you can set the verbosity of the exceptions produced by Class::Throwable. The simplest way is as the argument to the C<toString> method. Using this method will override any other settings you may have, and insure that the output of this method is as you ask it to be.
 
@@ -321,9 +321,9 @@ For instance, if you define inline exceptions, then the simplest way to set a ve
 
 This means that unless the C<toString> verbosity argument overrides it, all I<My::InlineException> exceptions will use a verbosity setting of 2. This method means that you can easily C<print> the value of C<$@> and then any I<My::InlineException> exceptions will be automatically stringified with a verbosity level of 2. This can simplify exception catching by reducing the need to inspect the value of C<$@>.
 
-If you defined your exceptions as subclasses of Class::Throwable and stored them in seperate files, then another means of setting the verbosity level is to assign it in the C<use> statement. 
+If you defined your exceptions as subclasses of Class::Throwable and stored them in separate files, then another means of setting the verbosity level is to assign it in the C<use> statement. 
 
-  use My::SeperateFileSubClass::Exception (VERBOSE => 2);
+  use My::SeparateFileSubClass::Exception (VERBOSE => 2);
 
 This has the same effect as the C<setVerbosity> class method, in fact, there is nothing to stop you from using the C<setVerbosity> class method in this case if you like. This method can also be used on Class::Throwable itself, however, this does not set the verbosity level for all subclasses, only for Class::Throwable exceptions.
 
@@ -331,9 +331,9 @@ There is one last method which can be used. This method has the widest scope of 
 
 =head2 Module exception retro-fitting
 
-It is possible to retrofit a module to use Class::Throwable exceptions if you want to. Basially this will allow modules which C<die> with either strings or some other value, to throw Class::Throwable based exceptions. This feature is relatively new and should be considered to be experimental, any feedback on it is greatly appreciated. 
+It is possible to retrofit a module to use Class::Throwable exceptions if you want to. Basically this will allow modules which C<die> with either strings or some other value, to throw Class::Throwable based exceptions. This feature is relatively new and should be considered to be experimental, any feedback on it is greatly appreciated. 
 
-B<NOTE:> It is important to do module retrofitting at the earliest possible moment (peferrably before the module you are retrofitting is compiled), as it will override C<die> within a specified package. 
+B<NOTE:> It is important to do module retrofitting at the earliest possible moment (preferrably before the module you are retrofitting is compiled), as it will override C<die> within a specified package. 
 
 Other than all this, retrofitting is quite simple. Here is a basic example:
 
@@ -451,7 +451,7 @@ Given the following code:
   eval { Foo::foo() };
   print $@->toString($verbosity) if $@;  
   
-If you were to print the exception with verbosity of 0, you would get no output at all. This mode can be used to supress exception output if needed. If you were to print the exception with verbosity of 1, you would get this output.
+If you were to print the exception with verbosity of 0, you would get no output at all. This mode can be used to suppress exception output if needed. If you were to print the exception with verbosity of 1, you would get this output.
 
   Class::Throwable : Foo!!  
     
